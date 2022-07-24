@@ -1,0 +1,54 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    overflow-x: hidden;
+}
+
+.title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 60px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1430px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+svg {
+    transition: all 1s;
+}
+
+svg:hover {
+    transform: scale(2);
+}
+
+svg:hover .white {
+    fill: white;
+}
+
+svg:hover .black {
+    fill: black;
+    transition: all 1s;
+}
+
+
+.open__popup-btn {
+    border-color: #fff;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 40px;
+    border-radius: 7px;
+    box-shadow: 0 0 40px 40px #000000 inset, 0 0 0 0 #000000;
+    transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.open__popup-btn:hover {
+    box-shadow: 0 0 10px 0 #ffffff inset, 0 0 10px 4px #ffffff;
+    color: #000;
+}
+

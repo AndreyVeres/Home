@@ -50,7 +50,7 @@ function styles() {
     return src(
         [
             'app/scss/style.scss',
-            'app/scss/var.scss'
+            
         ]
     )
         .pipe(scss({ outputStyle: 'compressed' }))
@@ -66,7 +66,7 @@ function watching() {
 }
 function scripts() {
     return src([
-        'node_modules/jquery/dist/jquery.js',
+        // 'node_modules/jquery/dist/jquery.js',
         'app/js/main.js'
     ])
         .pipe(concat('main.min.js'))
