@@ -1,25 +1,39 @@
 const scss = require('gulp-sass')(require('sass'));
-const { src, dest, watch, parallel ,series } = require('gulp');
+const { src, dest, watch, parallel, series } = require('gulp');
 const concat = require('gulp-concat');                         //для склеивания файлов
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');                         //Минифицирует файлы
 const browserSync = require('browser-sync').create();               //Для обновления страницы
 const imagemin = require('gulp-imagemin');
 
+
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./app/**/*')
+    .pipe(ghPages());
+});
+
+
+
+
+
+
 const del = require('del');
 
- function cleanDist(){
+function cleanDist() {
     return del('dist')
 }
 
 
-function build () {
+function build() {
     return src([
         'app/**/*.html',
         'app/css/style.min.css',
         'app/js/main.min.js'
-    ], {base : 'app'})
-    .pipe(dest('dist'))
+    ], { base: 'app' })
+        .pipe(dest('dist'))
     images()
 }
 function refresh() {
@@ -50,7 +64,7 @@ function styles() {
     return src(
         [
             'app/scss/style.scss',
-            
+
         ]
     )
         .pipe(scss({ outputStyle: 'compressed' }))
@@ -83,7 +97,7 @@ exports.refresh = refresh;
 exports.cleanDist = cleanDist;
 exports.images = images;
 
-exports.build = series(cleanDist , build , images)
+exports.build = series(cleanDist, build, images)
 exports.default = parallel(styles, scripts, watching, refresh)
 
 
