@@ -61,6 +61,12 @@
         position: relative;
         overflow: hidden;
         transition: matrix 2s ease-in ;
+        border: 2px solid transparent ;
+        transition: all 1.5s;
+    }
+    
+    &__item:hover {
+        border: 2px solid #fff;
     }
 
     &__item-img {
